@@ -1,0 +1,33 @@
+% Typed epistemic graph fragment for the illustrative campaign (affine plank).
+\begin{tikzpicture}[
+    font=\footnotesize,
+    n/.style={draw, rounded corners, align=center, inner sep=3pt,
+              minimum height=7mm, text width=30mm},
+    bott/.style={n, fill=red!8, draw=red!60!black},
+    tech/.style={n, fill=orange!10, draw=orange!60!black},
+    bridge/.style={n, fill=teal!10, draw=teal!60!black},
+    concept/.style={n, fill=blue!10, draw=blue!60!black},
+    cex/.style={n, fill=gray!12, draw=gray!60!black},
+    obs/.style={n, fill=purple!10, draw=purple!60!black},
+    >=Stealth,
+    every edge quotes/.style={font=\scriptsize, fill=white, inner sep=1pt},
+    ]
+\node[bott] (b) {\textbf{ResearchBottleneck}\\\footnotesize sharp normalizer beyond longest chord};
+\node[tech, above left=8mm and 2mm of b] (t) {\textbf{Technique}\\\footnotesize transport-defect $D_K(u)$ monotone quantity};
+\node[bridge, above right=8mm and 2mm of b] (br) {\textbf{Analogy/Bridge}\\\footnotesize planks $\leftrightarrow$ mass transport / marginals};
+\node[concept, below left=8mm and 2mm of b] (c) {\textbf{Invariant (candidate)}\\\footnotesize uniform-marginal witness measure};
+\node[obs, below right=9mm and 2mm of b] (o) {\textbf{Obstruction}\\\footnotesize Bang chord step is sharp \texttt{[NO\_GO]}};
+\node[cex, right=10mm of br] (cex) {\textbf{Counterexample}\\\footnotesize non-concurrent triple defeats naive transport};
+
+\draw[->] (t) edge["solves\_bottleneck"] (b);
+\draw[->] (br) edge["transports\_to"] (b);
+\draw[->] (c) edge["compresses"] (b);
+\draw[->, purple!60!black] (o) edge["is\_obstructed\_by" {swap}] (b);
+\draw[->, gray!60!black] (cex) edge["breaks\_under" {swap}] (br);
+
+\node[font=\scriptsize, align=left, draw=black!30, rounded corners, fill=black!3,
+      below=6mm of o, xshift=-24mm, text width=95mm]
+     {\textbf{Epistemic states} (orthogonal to type): candidate quantities enter \texttt{[EVIDENCE]} at most;
+      the sharp-normalizer obstruction is a promoted \texttt{[NO\_GO]} barrier; nothing here is \texttt{[PROMOTED]}
+      as a theorem without passing the lifecycle of Fig.~\ref{fig:lifecycle}.};
+\end{tikzpicture}

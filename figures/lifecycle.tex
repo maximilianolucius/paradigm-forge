@@ -1,0 +1,52 @@
+% Discovery-to-promotion lifecycle: nine stages with the promotion membrane.
+\begin{tikzpicture}[
+    font=\footnotesize,
+    stage/.style={draw, rounded corners, align=center, minimum height=9mm,
+                  text width=24mm, inner sep=3pt},
+    sgen/.style={stage, fill=orange!10, draw=orange!60!black},
+    strust/.style={stage, fill=blue!10, draw=blue!60!black},
+    >=Stealth, node distance=6mm,
+    ]
+\node[sgen] (s1) {1. Speculative\\generation};
+\node[sgen, right=of s1] (s2) {2. Computational\\experimentation};
+\node[sgen, right=of s2] (s3) {3. Lemma\\extraction};
+\node[sgen, right=of s3] (s4) {4. Informal proof\\construction};
+
+\node[strust, below=18mm of s4] (s5) {5. Formalization\\(where feasible)};
+\node[strust, left=of s5] (s6) {6. Independent\\reconstruction};
+\node[strust, left=of s6] (s7) {7. Adversarial\\review};
+\node[strust, left=of s7] (s8) {8. CongressBench\\evaluation};
+
+\node[strust, below=16mm of s8, xshift=18mm, text width=44mm, fill=blue!14] (s9)
+     {9. Promotion \emph{or} rejection in Mirador\\ \footnotesize(promoted cell \; / \; structured negative knowledge)};
+
+% negative-knowledge sink (rejection is retained, not deleted)
+\node[draw, dashed, rounded corners, fill=gray!8, align=center, font=\scriptsize,
+      left=12mm of s9, anchor=east] (nk) {negative\\knowledge\\store};
+
+\draw[->] (s1) -- (s2);
+\draw[->] (s2) -- (s3);
+\draw[->] (s3) -- (s4);
+\draw[->] (s4) -- (s5);
+\draw[->] (s5) -- (s6);
+\draw[->] (s6) -- (s7);
+\draw[->] (s7) -- (s8);
+\draw[->] (s8.south) -- ++(0,-5mm) -| (s9.north);
+
+% early refutation feedback (unlabelled; explained in the caption)
+\draw[->, orange!60!black, dashed] (s2.north) to[bend left=55] (s1.north);
+% rejection retained as negative knowledge
+\draw[->, blue!55!black, dashed] (s9.west) -- (nk.east)
+      node[midway, above, font=\scriptsize]{reject};
+
+% authority membrane (between the two rows), label masked over the line
+\draw[dashed, black!55] ($(s8.south west)+(-4mm,-3mm)$) -- ($(s5.south east)+(4mm,-3mm)$);
+\node[font=\scriptsize, black!60, fill=white, inner sep=1pt]
+      at ($(s8.south east)!0.5!(s5.south west)+(0,-3mm)$) {authority membrane};
+
+% temperature labels, in the empty corners
+\node[font=\scriptsize\itshape, orange!60!black, anchor=south west] at ($(s1.north west)+(-2mm,7mm)$)
+     {high epistemic temperature (propose only)};
+\node[font=\scriptsize\itshape, blue!60!black, anchor=north east] at ($(s5.south east)+(2mm,-10mm)$)
+     {near-zero temperature (promotion authority)};
+\end{tikzpicture}

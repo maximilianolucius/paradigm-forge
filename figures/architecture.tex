@@ -1,0 +1,67 @@
+% Full ParadigmForge architecture: speculative zone, membrane, trust zone.
+\begin{tikzpicture}[
+    font=\small,
+    box/.style={draw, rounded corners, align=center, minimum height=7mm,
+                inner sep=3pt, text width=26mm},
+    spec/.style={box, fill=orange!8, draw=orange!60!black},
+    trust/.style={box, fill=blue!8, draw=blue!60!black},
+    sub/.style={box, fill=orange!4, draw=orange!40!black, text width=23mm,
+                minimum height=6mm, font=\footnotesize},
+    io/.style={box, fill=gray!8, draw=gray!60!black, text width=24mm},
+    >=Stealth,
+    ]
+
+% ---- Discovery / speculative zone ----
+\node[spec, text width=32mm] (atlas) {\textbf{Frontier Atlas}\\\footnotesize bottleneck portfolio};
+\node[sub, below=5mm of atlas, xshift=-30mm] (tech) {\textbf{TechniqueForge}};
+\node[sub, right=4mm of tech] (bridge) {\textbf{BridgeForge}};
+\node[sub, right=4mm of bridge] (concept) {\textbf{ConceptForge}};
+\node[sub, below=5mm of tech, xshift=15mm] (exp) {\textbf{Experimentarium}\\\footnotesize evidence \& falsification};
+\node[sub, right=6mm of exp] (foundry) {\textbf{DomainFoundry}\\\footnotesize longitudinal audit};
+
+\begin{scope}[on background layer]
+  \node[draw=orange!60!black, dashed, rounded corners, fill=orange!3,
+        fit=(atlas)(tech)(concept)(exp)(foundry),
+        inner sep=6mm, label={[orange!50!black]above:\textbf{Speculative Zone --- high epistemic temperature (propose only)}}] (speczone) {};
+\end{scope}
+
+% ---- Trust zone ----
+\node[trust, below=20mm of exp, xshift=8mm, text width=30mm] (congress) {\textbf{CongressBench Review}\\\footnotesize fresh-context, multi-lens};
+\node[trust, left=6mm of congress, text width=26mm] (formal) {\textbf{Formalization}\\\footnotesize Lean / certificates};
+\node[trust, right=6mm of congress, text width=28mm] (mirador) {\textbf{Mirador Corpus}\\\footnotesize typed, versioned cells};
+
+\begin{scope}[on background layer]
+  \node[draw=blue!60!black, dashed, rounded corners, fill=blue!3,
+        fit=(formal)(congress)(mirador),
+        inner sep=5mm, label={[blue!55!black]below:\textbf{Trust Zone --- near-zero temperature (sole promotion authority)}}] (trustzone) {};
+\end{scope}
+
+% ---- Membrane ----
+\node[draw=black!70, fill=black!5, rounded corners, minimum width=120mm,
+      minimum height=5mm, below=6mm of speczone.south, anchor=north,
+      align=center] (membrane)
+      {\textbf{One-way authority membrane} \; --- \; candidates enter as \texttt{[DRAFT]}/\texttt{[EVIDENCE]}; only the Trust Zone may \texttt{[PROMOTE]}};
+
+% ---- external I/O ----
+\node[io, above=15mm of speczone.north, xshift=-40mm] (ingest) {\textbf{MathIngestBench}\\\footnotesize literature $\to$ cells};
+\node[io, above=15mm of speczone.north, xshift=40mm] (retr) {\textbf{ProofContext}\\\footnotesize safe context retrieval};
+
+% ---- edges ----
+\draw[->] (ingest) -- (speczone.north -| ingest);
+\draw[->] (retr) -- (speczone.north -| retr);
+\draw[->, orange!60!black] (atlas) -- (tech);
+\draw[->, orange!60!black] (atlas) -- (bridge);
+\draw[->, orange!60!black] (atlas) -- (concept);
+\draw[->, orange!50!black] (tech) -- (exp);
+\draw[->, orange!50!black] (concept) -- (exp);
+\draw[->, orange!50!black] (bridge) -- (exp);
+\draw[->, orange!50!black] (concept.south) to[bend left=8] (foundry.north);
+
+\draw[->, very thick, black!70] (membrane.south) -- ++(0,-6mm);
+\draw[->, blue!55!black] (formal) -- (congress);
+\draw[->, blue!55!black] (congress) -- (mirador);
+% feedback loop: promoted knowledge and negative knowledge back to Atlas
+\draw[->, blue!40!black, dashed] (mirador.east) to[bend left=55]
+      node[pos=0.5,right,align=left,font=\footnotesize]{promoted results\\+ negative knowledge}
+      (speczone.east);
+\end{tikzpicture}

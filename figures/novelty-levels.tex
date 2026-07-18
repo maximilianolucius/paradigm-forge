@@ -1,0 +1,27 @@
+% Four escalating levels of mathematical novelty as a staircase.
+\begin{tikzpicture}[
+    font=\small,
+    lvl/.style={draw, rounded corners, align=left, inner sep=5pt,
+                text width=58mm, minimum height=11mm},
+    l1/.style={lvl, fill=green!8, draw=green!55!black},
+    l2/.style={lvl, fill=teal!8, draw=teal!55!black},
+    l3/.style={lvl, fill=blue!8, draw=blue!55!black},
+    l4/.style={lvl, fill=violet!8, draw=violet!55!black},
+    >=Stealth,
+    ]
+\node[l1] (l1) {\textbf{L1 \; Novel technique}\\[1pt]\footnotesize an original tool / proof mechanism operating \emph{within} an existing theory};
+\node[l2, above=6mm of l1, xshift=16mm] (l2) {\textbf{L2 \; Cross-domain bridge}\\[1pt]\footnotesize a structure-preserving translation connecting domains not previously linked in the required way};
+\node[l3, above=6mm of l2, xshift=16mm] (l3) {\textbf{L3 \; New conceptual language}\\[1pt]\footnotesize definitions / invariants / objects / equivalences exposing hidden structure};
+\node[l4, above=6mm of l3, xshift=16mm] (l4) {\textbf{L4 \; Domain genesis}\\[1pt]\footnotesize a language becomes a productive domain: many theorems, problem families, internal questions, transferable methods};
+
+\draw[->, thick] (l1.east) ++(0,0) to[bend left=10] (l2.west);
+\draw[->, thick] (l2.east) to[bend left=10] (l3.west);
+\draw[->, thick] (l3.east) to[bend left=10] (l4.west);
+
+\node[rotate=90, anchor=south, font=\footnotesize\itshape, gray] at ($(l1.west)+(-6mm,28mm)$)
+     {increasing representational change / harder to validate};
+\draw[->, gray] ($(l1.west)+(-3mm,-3mm)$) -- ($(l1.west)+(-3mm,62mm)$);
+
+\node[font=\footnotesize, violet!55!black, align=center, text width=42mm] at ($(l4.south east)+(2mm,-9mm)$)
+     {\emph{cannot be self-declared;}\\emerges via sustained productivity + independent use + adversarial validation};
+\end{tikzpicture}

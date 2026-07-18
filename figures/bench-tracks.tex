@@ -1,0 +1,29 @@
+% ParadigmForgeBench: four evaluation tracks with what each demands.
+\begin{tikzpicture}[
+    font=\footnotesize,
+    trk/.style={draw, rounded corners, align=left, inner sep=5pt,
+                text width=52mm, minimum height=20mm, fill=gray!5},
+    hd/.style={font=\small\bfseries},
+    >=Stealth,
+    ]
+\node[trk, draw=green!55!black, fill=green!6] (a)
+  {{\bfseries\small Track A --- Technique reconstruction}\\[2pt]
+   Hide a historical technique; expose only the \emph{prior} context.\\
+   \textbf{Pass:} reconstruct a \emph{functionally equivalent} method (ablation-necessary), not the surface form.};
+\node[trk, draw=teal!55!black, fill=teal!6, right=8mm of a] (b)
+  {{\bfseries\small Track B --- Bridge discovery}\\[2pt]
+   Two domains; recover / construct a structural translation.\\
+   \textbf{Pass:} \emph{transport a nontrivial theorem} + a testable prediction + a stated breakage point. Verbal analogy fails.};
+\node[trk, draw=blue!55!black, fill=blue!6, below=8mm of a] (c)
+  {{\bfseries\small Track C --- Concept formation}\\[2pt]
+   Families of examples, canonical abstraction withheld.\\
+   \textbf{Pass:} propose an invariant/concept that \emph{compresses} the examples and \emph{predicts held-out} behaviour.};
+\node[trk, draw=violet!55!black, fill=violet!6, right=8mm of c] (d)
+  {{\bfseries\small Track D --- Domain productivity}\\[2pt]
+   Does a candidate language yield several \emph{independently derived} results across problem families?\\
+   \textbf{Longitudinal:} not scorable by a short benchmark.};
+
+\node[draw=black!40, rounded corners, fill=yellow!8, below=7mm of c, xshift=32mm,
+      text width=108mm, align=center, font=\footnotesize] (note)
+  {All tracks enforce contamination controls, blind expert adjudication, and independent-agent replication; every claim passes the discovery-to-promotion lifecycle before it counts as ``verified''.};
+\end{tikzpicture}
