@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use or refer to this work, please cite it as below."
+title: "ParadigmForge: A Governed Architecture for Machine-Generated Mathematical Theory Formation"
+authors:
+  - family-names: Lucius
+    given-names: Maximiliano
+    affiliation: "Independent Researcher / Aureus Technologies"
+type: article
+year: 2026
+license: CC-BY-4.0
+doi: 10.5281/zenodo.21435135
+url: "https://doi.org/10.5281/zenodo.21435135"
+repository-code: "https://github.com/maximilianolucius/paradigm-forge"
+keywords:
+  - AI for mathematics
+  - automated theorem proving
+  - theory formation
+  - mathematical novelty
+  - Bourbaki Engine
+  - epistemic governance
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21435135
+    description: "This version"
+  - type: doi
+    value: 10.5281/zenodo.21435134
+    description: "Concept DOI (all versions)"

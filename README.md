@@ -2,7 +2,13 @@
 
 **A Governed Architecture for Machine-Generated Mathematical Theory Formation**
 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.21435135.svg)](https://doi.org/10.5281/zenodo.21435135)
+&nbsp;License: text/figures [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 Author: Maximiliano Lucius
+
+- **Paper (archival, DOI):** <https://doi.org/10.5281/zenodo.21435135>
+- **All versions (concept DOI):** <https://doi.org/10.5281/zenodo.21435134>
 
 This repository contains the LaTeX source of the ParadigmForge paper — an *architecture and
 evaluation-framework* paper that extends the Bourbaki Engine research program from theorem
@@ -83,8 +89,21 @@ The output is `paradigmforge.pdf`.
 
 ## Citation
 
-If you refer to this work, please cite the paper (`paradigmforge.tex` / the arXiv version once
-posted) and the companion Bourbaki papers listed in `references.bib`.
+If you refer to this work, please cite the archived version (DOI
+[10.5281/zenodo.21435135](https://doi.org/10.5281/zenodo.21435135)) and the companion Bourbaki
+papers listed in `references.bib`.
+
+```bibtex
+@misc{lucius2026paradigmforge,
+  author       = {Lucius, Maximiliano},
+  title        = {{ParadigmForge: A Governed Architecture for
+                   Machine-Generated Mathematical Theory Formation}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.21435135},
+  url          = {https://doi.org/10.5281/zenodo.21435135}
+}
+```
 
 ## License
 
